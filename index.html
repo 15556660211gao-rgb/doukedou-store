@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff6fac" />
+  <title>豆可兜门店管理系统</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loginPage" class="login-page">
+    <div class="login-card">
+      <div class="login-logo">豆可兜</div>
+      <div class="login-sub">DOUKEDOU BEADS · 门店管理</div>
+      <label>账号</label>
+      <input id="loginUser" autocomplete="username" placeholder="请输入账号" value="admin" />
+      <label>密码</label>
+      <input id="loginPass" autocomplete="current-password" type="password" placeholder="请输入密码" />
+      <button id="loginBtn" class="login-btn">登录</button>
+      <p class="login-hint">默认账号：admin　默认密码：123456<br>正式使用前请到设置里修改密码。</p>
+    </div>
+  </div>
+  <div id="app" class="hidden">
+    <header class="top">
+      <div class="brand">
+        <div class="logo-text">豆可兜</div>
+        <div class="sub">DOUKEDOU BEADS · 门店管理</div>
+      </div>
+      <button id="soundBtn" class="sound">🔊 开启声音</button>
+      <button id="logoutBtn" class="sound light">退出</button>
+    </header>
+
+    <section class="stats">
+      <div><b id="todayRevenue">¥0</b><span>今日营业额</span></div>
+      <div><b id="activeCount">0</b><span>营业中</span></div>
+      <div><b id="todayOrders">0</b><span>今日订单</span></div>
+      <div><b id="todayPeople">0</b><span>今日人数</span></div>
+    </section>
+
+    <main>
+      <div class="actions">
+        <input id="searchInput" placeholder="搜索桌号，如 A12 / VIP1" />
+        <button id="openModalBtn">＋开台</button>
+      </div>
+      <div id="tables" class="tables empty"></div>
+    </main>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="home">🏠 首页</button>
+      <button class="tab" data-tab="orders">📋 订单</button>
+      <button class="tab" data-tab="settings">⚙️ 设置</button>
+    </nav>
+
+    <section id="ordersPage" class="page hidden">
+      <h2>订单记录</h2>
+      <div id="ordersList"></div>
+    </section>
+
+    <section id="settingsPage" class="page hidden">
+      <h2>设置</h2>
+      <label>提前提醒分钟 <input id="warnMinutes" type="number" value="10" min="1" /></label>
+      <label>默认单价（元） <input id="defaultPrice" type="number" value="39" min="0" /></label>
+      <label>登录账号</label>
+      <input id="setUser" />
+      <label>新密码</label>
+      <input id="setPass" type="password" placeholder="不改密码就留空" />
+      <button id="saveSettings">保存设置</button>
+      <p class="hint">苹果手机首次必须点“开启声音”，前台打开时才能响。</p>
+    </section>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="sheet">
+      <h2>开台</h2>
+      <label>桌号 <input id="tableNo" placeholder="A12 / 8号桌 / VIP1" /></label>
+      <label>人数 <input id="people" type="number" value="1" min="1" /></label>
+      <label>套餐</label>
+      <div class="plans">
+        <button data-min="60" data-price="39">60分钟 ¥39</button>
+        <button data-min="90" data-price="59">90分钟 ¥59</button>
+        <button data-min="120" data-price="69">120分钟 ¥69</button>
+        <button data-min="180" data-price="99">180分钟 ¥99</button>
+      </div>
+      <div class="row2">
+        <input id="customMin" type="number" placeholder="自定义分钟" />
+        <input id="customPrice" type="number" placeholder="金额" />
+      </div>
+      <label>备注 <input id="remark" placeholder="可不填" /></label>
+      <div class="sheet-actions">
+        <button id="closeModal">取消</button>
+        <button id="startTable" class="primary">开始</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="alertBox" class="alert hidden">
+    <b id="alertTitle">到时间了</b>
+    <p id="alertText"></p>
+    <button id="ackAlert">知道了</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
