@@ -1,10 +1,10 @@
 {
   "name": "豆可兜门店管理系统",
   "short_name": "豆可兜",
-  "start_url": "./",
+  "start_url": "./?v=7",
   "display": "standalone",
   "background_color": "#fff8fc",
-  "theme_color": "#ff75b6",
+  "theme_color": "#ff6fb0",
   "icons": [
     {
       "src": "logo.png",
