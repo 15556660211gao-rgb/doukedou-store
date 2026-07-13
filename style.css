@@ -70,11 +70,17 @@ button{border:0;cursor:pointer}
 .color-grid button.active{background:var(--pink);color:#fff;border-color:var(--pink)}
 .selected-code{display:flex;align-items:center;justify-content:space-between;padding:12px;border-radius:15px;background:var(--pink-soft);border:1px solid #ffd5e8;margin:10px 0}
 .selected-code strong{font-size:24px;color:var(--pink)}
+.weight-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:8px 0 12px}
+.weight-option{padding:12px 5px;border-radius:13px;border:1px solid var(--line);background:#fff;color:var(--text);font-weight:900}
+.weight-option.active{background:var(--pink);color:#fff;border-color:var(--pink)}
+.custom-weight{display:none;margin-top:10px}
+.custom-weight.show{display:block}
 .error{padding:12px;border-radius:14px;background:#fff1f3;color:#a11d30;border:1px solid #ffc2ca;font-size:13px;white-space:pre-wrap}
 @media(max-width:460px){
   .brand img{width:56px;height:56px;flex-basis:56px}
   .stats{grid-template-columns:1fr 1fr}.stats .stat:last-child{grid-column:1/-1}
   .color-grid{grid-template-columns:repeat(4,1fr)}
+  .weight-grid{grid-template-columns:repeat(3,1fr)}
   .bead{display:block}.bead-actions{margin-top:10px}
   .navbar button{padding:10px 12px}
 }
